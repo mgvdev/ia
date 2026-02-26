@@ -1,58 +1,58 @@
 # @mgvdev/ai
 
-CLI Bun pour générer des règles IA de projet et les brancher automatiquement dans `AGENTS.md` ou `CLAUDE.md`.
+A Bun CLI to generate project AI rules and automatically wire them into `AGENTS.md` or `CLAUDE.md`.
 
-## Ce que fait le CLI
+## What The CLI Does
 
-Au lancement de `init`, le CLI:
+When you run `init`, the CLI:
 
-1. Détecte le fichier d'instructions cible:
-`AGENTS.md` en priorité, sinon `CLAUDE.md`, sinon crée `AGENTS.md`.
-2. Ouvre un wizard interactif de catégories/règles/options.
-3. Permet de sauter des questions (`Enter` sans sélection).
-4. Permet des actions clavier:
-`a` (tout cocher/décocher), `i` (inverser).
-5. Permet un texte libre par règle (ex: préciser "tRPC" pour un style API).
-6. Génère les fichiers `.ai_rules/*.md` + `.ai_rules/config.json`.
-7. Met à jour un bloc géré automatiquement dans `AGENTS.md`/`CLAUDE.md` avec des liens vers les règles.
+1. Detects the target instructions file:
+`AGENTS.md` first, then `CLAUDE.md`, otherwise creates `AGENTS.md`.
+2. Opens an interactive wizard for categories/rules/options.
+3. Lets you skip questions (`Enter` with no selection).
+4. Supports keyboard shortcuts:
+`a` (select/deselect all), `i` (invert selection).
+5. Lets you add free text per rule (for example, specifying "tRPC" for API style).
+6. Generates `.ai_rules/*.md` files and `.ai_rules/config.json`.
+7. Updates a managed block in `AGENTS.md`/`CLAUDE.md` with links to generated rule files.
 
-## Installation locale (développement)
+## Local Installation (Development)
 
 ```bash
 bun install
 ```
 
-## Utilisation locale
+## Local Usage
 
 ```bash
 bun run index.ts init
 ```
 
-Mode non interactif:
+Non-interactive mode:
 
 ```bash
 bun run index.ts init --non-interactive --preset web
 ```
 
-## Utilisation via bunx (package publié)
+## Usage With bunx (Published Package)
 
 ```bash
 bunx --bun @mgvdev/ai init
 ```
 
-## Publication
+## Publishing
 
 ```bash
 npm login
 bun publish --access public
 ```
 
-## Sortie générée
+## Generated Output
 
-Après `init`, tu obtiens:
+After `init`, you get:
 
-- `.ai_rules/config.json` (source de vérité des sélections)
-- `.ai_rules/<category>.md` (1 fichier par catégorie sélectionnée)
-- un bloc géré entre:
-`<!-- AI-INIT:RULES:BEGIN -->` et `<!-- AI-INIT:RULES:END -->`
-dans `AGENTS.md` ou `CLAUDE.md`
+- `.ai_rules/config.json` (source of truth for selections)
+- `.ai_rules/<category>.md` (1 file per selected category)
+- a managed block between:
+`<!-- AI-INIT:RULES:BEGIN -->` and `<!-- AI-INIT:RULES:END -->`
+in `AGENTS.md` or `CLAUDE.md`
