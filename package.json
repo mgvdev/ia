@@ -1,8 +1,13 @@
 {
-  "name": "ai-init",
+  "name": "@mgvdev/ai",
+  "version": "0.1.0",
+  "description": "CLI to generate AI rule documentation and wire it into AGENTS.md or CLAUDE.md",
+  "bin": {
+    "ai": "index.ts"
+  },
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "@types/bun": "latest"
   },
