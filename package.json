@@ -1,6 +1,6 @@
 {
   "name": "@mgvdev/ai",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "CLI to generate AI rule documentation and wire it into AGENTS.md or CLAUDE.md",
   "bin": {
     "ai": "dist/index.js"
