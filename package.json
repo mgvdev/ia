@@ -3,11 +3,27 @@
   "version": "0.1.0",
   "description": "CLI to generate AI rule documentation and wire it into AGENTS.md or CLAUDE.md",
   "bin": {
-    "ai": "index.ts"
+    "ai": "dist/index.js"
   },
-  "module": "index.ts",
+  "module": "dist/index.js",
   "type": "module",
   "private": false,
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "bun test",
+    "build": "bun build index.ts --outdir dist --target bun",
+    "publish:npm": "bun run test && bun run build && npm publish",
+    "publish:npm:dry": "bun run test && bun run build && npm publish --dry-run",
+    "release:patch": "npm version patch && bun run publish:npm",
+    "release:minor": "npm version minor && bun run publish:npm",
+    "release:major": "npm version major && bun run publish:npm"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
