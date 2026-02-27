@@ -46,13 +46,6 @@ bun run index.ts init --non-interactive --preset web
 bunx --bun @mgvdev/ai init
 ```
 
-## Publishing
-
-```bash
-npm login
-bun publish --access public
-```
-
 ## Generated Output
 
 After `init`, you get:
