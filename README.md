@@ -2,6 +2,10 @@
 
 A Bun CLI to generate project AI rules and automatically wire them into `AGENTS.md` or `CLAUDE.md`.
 
+## Demo
+
+[Watch the presentation video](media/demo.mp4)
+
 ## What The CLI Does
 
 When you run `init`, the CLI:
