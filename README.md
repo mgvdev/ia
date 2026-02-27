@@ -4,7 +4,9 @@ A Bun CLI to generate project AI rules and automatically wire them into `AGENTS.
 
 ## Demo
 
-[Watch the presentation video](media/demo.mp4)
+<video src="media/demo.mp4" controls muted playsinline width="100%"></video>
+
+If the embedded player does not render, [open the video directly](media/demo.mp4).
 
 ## What The CLI Does
 
