@@ -40,6 +40,26 @@ export const RULES_CATALOG: CategoryDefinition[] = [
         { id: "app_local_components", label: "App-local components", emits: "Keep components in the application repo and avoid publishing a separate UI package." },
         { id: "progressive_extract", label: "Progressive extraction", emits: "Start in-app and progressively extract stable components into a shared package with Storybook." },
       ]),
+      rule("component_library_standard", "Component library standard", "Operational standards for the component library stack.", "shadcn_strict", [
+        {
+          id: "shadcn_strict",
+          label: "Shadcn strict",
+          emits:
+            "Enforce shadcn-first composition for molecules/organisms; if a primitive is missing, create or extend a shadcn atom first; forbid raw HTML controls (`<button>`, `<input>`, `<select>`, `<textarea>`) outside atoms/wrappers; use token-only design classes (no hardcoded colors/radius/shadows); forbid inline style for design except documented dynamic technical constraints; keep stories aligned with design-system components (no fake visual wrappers); enforce CI guardrails such as `rg -n \"<button|<input|<select|<textarea\" src/{molecules,organisms} --glob '!**/*.test.tsx'` and `rg -n \"#[0-9A-Fa-f]{3,8}|oklch\\\\(|rgb\\\\(|hsl\\\\(\" src/{atoms,molecules,organisms,stories}`; definition of done requires typecheck + tests + Storybook build, and story/snapshot updates for visual class changes.",
+        },
+        {
+          id: "shadcn_balanced",
+          label: "Shadcn balanced",
+          emits:
+            "Prefer shadcn atoms as the base for molecules/organisms, minimize raw HTML controls outside atoms, use theme tokens by default, keep stories design-system compliant, and run CI checks for raw controls and hardcoded color functions.",
+        },
+        {
+          id: "library_agnostic",
+          label: "Library-agnostic",
+          emits:
+            "Do not enforce a specific component library standard; apply generic design-system and accessibility conventions instead.",
+        },
+      ]),
       rule("accessibility_standard", "Accessibility standard", "Accessibility quality bar for frontend deliverables.", "wcag_aa_required", [
         { id: "wcag_aa_required", label: "WCAG AA required", emits: "Require WCAG 2.2 AA compliance for all user-facing interactive flows." },
         { id: "wcag_aa_with_axe_ci", label: "WCAG AA + automated checks", emits: "Enforce WCAG AA and run automated accessibility checks in CI for critical pages." },
